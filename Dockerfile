@@ -8,8 +8,11 @@ COPY package*.json ./
 
 #Copying package.json and package-lock.json (if its exists) from the local directory to the working directory.
 
-RUN npm install
 #Install the dependencies in your packge json.file
+RUN npm install
+
+# Update browserslist DB
+RUN npx update-browserslist-db@latest
 
 COPY . /home/ubuntu/youtube-clone
 #Copies the source code from your local directory to container working directory
